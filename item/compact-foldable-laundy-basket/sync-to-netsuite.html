@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Compact Foldable Laundry Basket</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+</head>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+
+<body>
+  
+  
+  <div class="container mt-5">
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      <strong>Successfully Synced to NetSuite!</strong> Your item has been synced and is now locked for changes.
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    <h3>Compact Foldable Laundry Basket</h3>
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <span id="statusBadge" class="badge bg-success fs-6 px-3 py-2">Status: Sync to Netsuite</span>
+      <div class="border rounded px-3 py-1 text-muted small">
+        Role: Admin
+      </div>
+    </div>
+
+
+    <form>
+      <!-- Basic Info -->
+         <!-- Basic Info -->
+         <h5 class="mt-4 mb-2 fw-semibold">Basic Information</h5>
+         <hr>
+         
+         <!-- Row 1 -->
+         <div class="row mt-4">
+           <div class="col-md-4">
+             <label class="form-label d-block">NetSuite Item Type</label>
+             <div class="form-check form-check-inline">
+               <input class="form-check-input" type="radio" name="netsuiteItemType" id="inventoryItem" value="Inventory Item" checked>
+               <label class="form-check-label" for="inventoryItem">Inventory Item</label>
+             </div>
+             <div class="form-check form-check-inline">
+               <input class="form-check-input" type="radio" name="netsuiteItemType" id="assemblyItem" value="Assembly Item">
+               <label class="form-check-label" for="assemblyItem">Assembly Item</label>
+             </div>
+           </div>
+           <div class="col-md-4">
+             <label class="form-label">Item Type</label>
+             <select class="form-select" name="itemType" disabled>
+               <option value="Single" selected>Single</option>
+               <option value="Child">Child</option>
+               <option value="Parent">Parent</option>
+             </select>
+           </div>
+           <div class="col-md-4">
+             <label class="form-label">Parent SKU</label>
+             <input class="form-control" placeholder="Optional parent SKU" disabled>
+           </div>
+         </div>
+         
+         <!-- Row 2 -->
+         <div class="row mt-3">
+           <div class="col-md-4">
+             <label class="form-label">Display Name</label>
+             <input class="form-control" value="Compact Foldable Laundry Basket">
+           </div>
+           <div class="col-md-4">
+             <label class="form-label">Purchase Description</label>
+             <textarea class="form-control" rows="2">Foldable basket made of polyester and steel, ideal for compact laundry storage.</textarea>
+           </div>
+           <div class="col-md-4">
+             <label class="form-label">Supplier Item Code</label>
+             <input class="form-control" value="HB-FOLD-BASKET">
+           </div>
+         </div>
+         
+         <!-- Row 3 -->
+         <div class="row mt-3">
+           <div class="col-md-4">
+             <label class="form-label">SellerX SKU</label>
+             <input class="form-control" value='KWM0000260X001S' disabled>
+           </div>
+           <div class="col-md-4">
+             <label class="form-label">UPC</label>
+             <input class="form-control" value='987654321098' disabled>
+           </div>
+         </div>
+         
+         <!-- Row 4 -->
+         <div class="row mt-3">
+           <div class="col-md-4">
+             <label class="form-label">Manufacturer Country</label>
+             <select class="form-select" name="manufacturerCountry">
+               <option selected>Vietnam</option>
+               <option>China</option>
+               <option>Germany</option>
+               <option>USA</option>
+               <option>Philippines</option>
+               <option>India</option>
+               <option>Thailand</option>
+               <option>Bangladesh</option>
+               <option>Indonesia</option>
+               <option>Mexico</option>
+             </select>
+           </div>
+           <div class="col-md-5">
+             <label class="form-label d-block">Season</label>
+             <div class="form-check form-check-inline">
+               <input class="form-check-input" type="checkbox" name="season[]" value="All Seasons" id="seasonAll" checked>
+               <label class="form-check-label" for="seasonAll">All Seasons</label>
+             </div>
+             <div class="form-check form-check-inline">
+               <input class="form-check-input" type="checkbox" name="season[]" value="Summer" id="seasonSummer">
+               <label class="form-check-label" for="seasonSummer">Summer</label>
+             </div>
+             <div class="form-check form-check-inline">
+               <input class="form-check-input" type="checkbox" name="season[]" value="Spring" id="seasonSpring">
+               <label class="form-check-label" for="seasonSpring">Spring</label>
+             </div>
+             <div class="form-check form-check-inline">
+               <input class="form-check-input" type="checkbox" name="season[]" value="Autumn" id="seasonAutumn">
+               <label class="form-check-label" for="seasonAutumn">Autumn</label>
+             </div>
+             <div class="form-check form-check-inline">
+               <input class="form-check-input" type="checkbox" name="season[]" value="Winter" id="seasonWinter">
+               <label class="form-check-label" for="seasonWinter">Winter</label>
+             </div>
+           </div>
+           <div class="col-md-3 d-flex align-items-center">
+             <div class="form-check">
+               <input class="form-check-input" type="checkbox" checked>
+               <label class="form-check-label">LFS Item</label>
+             </div>
+           </div>
+         </div>
+         
+         <!-- Row 5 -->
+         <div class="row mt-3">
+           <div class="col-md-6">
+             <label class="form-label">Subsidiary</label>
+             <input name="subsidiary" class="form-control" id="subsidiaryInput" value="1 | 4">
+             <small class="form-text text-muted">Use <strong>|</strong> to separate multiple values.</small>
+           </div>
+           <div class="col-md-2">
+             <label class="form-label">Tax Schedule</label>
+             <input class="form-control" value="Standard Rate" disabled>
+           </div>
+         </div>
+
+
+      
+      
+  <!-- Supplier & Pricing -->
+<h5 class="mt-4 mb-2 fw-semibold">Supplier & Pricing</h5>
+<hr>
+<div class="row align-items-end">
+
+
+  <div class="col-md-3">
+    <div class="form-check mb-1">
+      <input class="form-check-input" type="checkbox" checked>
+      <label class="form-check-label">Preferred Supplier</label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" checked>
+      <label class="form-check-label">Track Landed Cost</label>
+    </div>
+  </div>
+
+
+  <div class="col-md-3">
+    <label class="form-label">Supplier</label>
+    <select class="form-select supplier-select" name="supplier" id="supplierSelect">
+      <option selected>Hanoi Soft Goods Co.</option>
+      <option>Global Textile Imports</option>
+      <option>ZenSource Manufacturing</option>
+      <option>KW Partners Inc.</option>
+      <option>Alpha Home Goods</option>
+    </select>
+  </div>
+
+  <div class="col-md-2">
+    <label class="form-label">Currency</label>
+    <input class="form-control" id="currencyField" value="VND" disabled>
+  </div>
+
+
+  <div class="col-md-2">
+    <label class="form-label">Price</label>
+    <input class="form-control" value="8.50">
+  </div>
+
+  <div class="col-md-2">
+    <label class="form-label">Responsible Purchaser</label>
+    <select class="form-select" name="purchaser">
+      <option selected>Michael Tan</option>
+      <option>Sarah Lee</option>
+      <option>Jacob Reyes</option>
+      <option>Emily Chen</option>
+      <option>Laura Park</option>
+    </select>
+  </div>
+
+</div>
+
+<!-- Category Management -->
+<h5 class="mt-5 mb-2 fw-semibold">Category Management</h5>
+<hr>
+<div class="row">
+  <!-- Brand Manager / Category Manager -->
+  <div class="col-md-4">
+    <label class="form-label">Brand Manager / Category Manager</label>
+    <select class="form-select select2">
+      <option selected>Thomas Mueller</option>
+      <option>Julia Simmons</option>
+      <option>Rachel Li</option>
+      <option>David Ng</option>
+    </select>
+  </div>
+
+  <!-- Category -->
+  <div class="col-md-4">
+    <label class="form-label">Category</label>
+    <select class="form-select select2">
+      <option selected>Phone Accessories</option>
+      <option>Storage & Laundry</option>
+      <option>Kitchen Tools</option>
+      <option>Office Supplies</option>
+    </select>
+  </div>
+
+  <!-- Responsible Purchaser -->
+  <div class="col-md-4">
+    <label class="form-label">Responsible Purchases</label>
+    <select class="form-select select2">
+      <option selected>Sophie Zhang</option>
+      <option>Michael Tan</option>
+      <option>Sarah Lee</option>
+      <option>Emily Chen</option>
+    </select>
+  </div>
+</div>
+
+      
+
+      <!-- Replenishment -->
+      <div class="mt-4">
+        <h5 class="mt-4 mb-2 fw-semibold">Replenishment Settings</h5>
+        <hr>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox">
+              <label class="form-check-label">NO FBA REPLENISHMENT – CA</label>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" checked>
+              <label class="form-check-label">NO FBA REPLENISHMENT – US</label>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox">
+              <label class="form-check-label">NO FBA REPLENISHMENT – JP</label>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox">
+              <label class="form-check-label">NO FBA REPLENISHMENT – EU</label>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" checked>
+              <label class="form-check-label">NO FBA REPLENISHMENT – UK</label>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox">
+              <label class="form-check-label">NO REPLENISHMENT – WHEU</label>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+
+
+
+     <!-- Dimensions - Metric -->
+<div class="mt-5">
+    <h5 class="fw-semibold">Dimensions - Metric</h5>
+    <hr>
+  
+    <!-- NetSuite Dimensions -->
+    <h6 class="mt-3 fw-bold">NetSuite Dimensions</h6>
+    <div class="row mb-3">
+      <div class="col-md-3">
+        <label class="form-label">WIDTH_NS, CM</label>
+        <input class="form-control" value="7.5">
+      </div>
+      <div class="col-md-3">
+        <label class="form-label">HEIGHT_NS, CM</label>
+        <input class="form-control" value="15">
+      </div>
+      <div class="col-md-3">
+        <label class="form-label">LENGTH_NS, CM</label>
+        <input class="form-control" value="0.8">
+      </div>
+      <div class="col-md-3">
+        <label class="form-label">WEIGHT_NS, KG</label>
+        <input class="form-control" value="0.05">
+      </div>
+    </div>
+  
+    <!-- Product Specific Dimensions -->
+    <h6 class="">Product Specific Dimensions</h6>
+    <div class="row mb-3">
+      <div class="col-md-3">
+        <label class="form-label">WIDTH_PS, CM</label>
+        <input class="form-control" value="8.0">
+      </div>
+      <div class="col-md-3">
+        <label class="form-label">HEIGHT_PS, CM</label>
+        <input class="form-control" value="15.2">
+      </div>
+      <div class="col-md-3">
+        <label class="form-label">LENGTH_PS, CM</label>
+        <input class="form-control" value="1.0">
+      </div>
+      <div class="col-md-3">
+        <label class="form-label">WEIGHT_PS, KG</label>
+        <input class="form-control" value="0.06">
+      </div>
+    </div>
+  
+    <!-- Carton Dimensions -->
+    <h6 class="fw-bold">Carton Dimensions</h6>
+    <div class="row mb-3">
+      <div class="col-md-3">
+        <label class="form-label">WIDTH_CTN, CM</label>
+        <input class="form-control" value="30.0">
+      </div>
+      <div class="col-md-3">
+        <label class="form-label">HEIGHT_CTN, CM</label>
+        <input class="form-control" value="20.0">
+      </div>
+      <div class="col-md-3">
+        <label class="form-label">LENGTH_CTN, CM</label>
+        <input class="form-control" value="40.0">
+      </div>
+      <div class="col-md-3">
+        <label class="form-label">WEIGHT_CTN, KG</label>
+        <input class="form-control" value="2.5">
+      </div>
+    </div>
+  </div>
+  
+  <!-- Dimensions - Imperial -->
+  <div class="mt-5">
+    <h5 class="fw-semibold">Dimensions - Imperial</h5>
+    <hr>
+  
+    <!-- NetSuite Dimensions -->
+    <h6 class="mt-3">NetSuite Dimensions</h6>
+    <div class="row mb-3">
+      <div class="col-md-3">
+        <label class="form-label">WIDTH_NS, INCH</label>
+        <input class="form-control" value="2.95">
+      </div>
+      <div class="col-md-3">
+        <label class="form-label">HEIGHT_NS, INCH</label>
+        <input class="form-control" value="5.90">
+      </div>
+      <div class="col-md-3">
+        <label class="form-label">LENGTH_NS, INCH</label>
+        <input class="form-control" value="0.30">
+      </div>
+      <div class="col-md-3">
+        <label class="form-label">WEIGHT_NS, INCH</label>
+        <input class="form-control" value="0.11">
+      </div>
+    </div>
+  
+    <!-- Product Specific Dimensions -->
+    <h6 class=""">Product Specific Dimensions</h6>
+    <div class="row mb-3">
+      <div class="col-md-3">
+        <label class="form-label">WIDTH_PS, INCH</label>
+        <input class="form-control" value="3.14">
+      </div>
+      <div class="col-md-3">
+        <label class="form-label">HEIGHT_PS, INCH</label>
+        <input class="form-control" value="5.98">
+      </div>
+      <div class="col-md-3">
+        <label class="form-label">LENGTH_PS, INCH</label>
+        <input class="form-control" value="0.39">
+      </div>
+      <div class="col-md-3">
+        <label class="form-label">WEIGHT_PS, INCH</label>
+        <input class="form-control" value="0.13">
+      </div>
+    </div>
+  
+    <!-- Carton Dimensions -->
+    <h6 class="">Carton Dimensions</h6>
+    <div class="row mb-3">
+      <div class="col-md-3">
+        <label class="form-label">WIDTH_CTN, INCH</label>
+        <input class="form-control" value="11.81">
+      </div>
+      <div class="col-md-3">
+        <label class="form-label">HEIGHT_CTN, INCH</label>
+        <input class="form-control" value="7.87">
+      </div>
+      <div class="col-md-3">
+        <label class="form-label">LENGTH_CTN, INCH</label>
+        <input class="form-control" value="15.74">
+      </div>
+      <div class="col-md-3">
+        <label class="form-label">WEIGHT_CTN, INCH</label>
+        <input class="form-control" value="5.51">
+      </div>
+    </div>
+  </div>
+  
+
+      <!-- Button -->
+      <div class="mt-4 d-flex justify-content-between align-items-center">
+        <div class="d-flex gap-2">
+          <a href="../../upload-success.html" class="btn btn-outline-secondary">← Newly Uploaded</a>
+          <a href="../../index.html" class="btn btn-outline-secondary">← All Items</a>
+        </div>
+      </div>
+      <!-- Spacer -->
+<div class="mb-5"></div>
+
+<!-- Footer -->
+<footer class="text-center text-muted small mb-4">
+  This mockup is made by Jan Valle.
+</footer>
+    </form>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
+<script>
+    const currencyMap = {
+      "Hanoi Soft Goods Co.": "VND",
+      "Global Textile Imports": "USD",
+      "ZenSource Manufacturing": "EUR",
+      "KW Partners Inc.": "USD",
+      "Alpha Home Goods": "GBP"
+    };
+  
+    document.getElementById("supplierSelect").addEventListener("change", function() {
+      const selected = this.value;
+      const currency = currencyMap[selected] || "";
+      document.getElementById("currencyField").value = currency;
+    });
+  </script>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const formElements = document.querySelectorAll(
+      'form input, form select, form textarea'
+    );
+
+    formElements.forEach((element) => {
+      element.disabled = true;
+    });
+  });
+</script>
+
+
+
+</body>
+</html>

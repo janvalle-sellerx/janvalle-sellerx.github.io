@@ -9,70 +9,85 @@
 </head>
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+
 <body>
+  
+  
   <div class="container mt-5">
-    <h3>Create New Item: Compact Foldable Laundry Basket</h3>
+    
+    <h3>Compact Foldable Laundry Basket</h3>
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <span id="statusBadge" class="badge bg-secondary fs-6 px-3 py-2">Status: Draft</span>
+      <div class="border rounded px-3 py-1 text-muted small">
+        Role: BM
+      </div>
+    </div>
+    
+
     <form>
       <!-- Basic Info -->
       <h5 class="mt-4 mb-2 fw-semibold">Basic Information</h5>
       <hr>
+      
+      <!-- Row 1 -->
       <div class="row mt-4">
-        <div class="col-md-3">
-            <label class="form-label d-block">NetSuite Item Type</label>
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="netsuiteItemType" id="inventoryItem" value="Inventory Item" checked>
-              <label class="form-check-label" for="inventoryItem">Inventory Item</label>
-            </div>
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="netsuiteItemType" id="assemblyItem" value="Assembly Item">
-              <label class="form-check-label" for="assemblyItem">Assembly Item</label>
-            </div>
+        <div class="col-md-4">
+          <label class="form-label d-block">NetSuite Item Type</label>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="netsuiteItemType" id="inventoryItem" value="Inventory Item" checked>
+            <label class="form-check-label" for="inventoryItem">Inventory Item</label>
           </div>
-          <div class="col-md-3">
-            <label class="form-label">Item Type</label>
-            <select class="form-select" name="itemType">
-              <option value="Single" selected>Single</option>
-              <option value="Child">Child</option>
-              <option value="Parent">Parent</option>
-            </select>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="netsuiteItemType" id="assemblyItem" value="Assembly Item">
+            <label class="form-check-label" for="assemblyItem">Assembly Item</label>
           </div>
-        <div class="col-md-3">
-            <label class="form-label">Brand</label>
-            <select class="form-select brand-select" name="brand">
-              <option>Home Basics</option>
-              <option>KW Mobile</option>
-              <option>Navaris</option>
-              <option>Brightday</option>
-              <option>Zenith</option>
-            </select>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-4">
+          <label class="form-label">Item Type</label>
+          <select class="form-select" name="itemType">
+            <option value="Single" selected>Single</option>
+            <option value="Child">Child</option>
+            <option value="Parent">Parent</option>
+          </select>
+        </div>
+        <div class="col-md-4">
+          <label class="form-label">Parent SKU</label>
+          <input class="form-control" placeholder="Optional parent SKU">
+        </div>
+      </div>
+      
+      <!-- Row 2 -->
+      <div class="row mt-3">
+        <div class="col-md-4">
           <label class="form-label">Display Name</label>
           <input class="form-control" value="Compact Foldable Laundry Basket">
         </div>
-      </div>
-
-      <div class="row mt-3">
-        <div class="col-md-3">
-          <label class="form-label">SellerX SKU</label>
-          <input class="form-control" placeholder="" disabled>
+        <div class="col-md-4">
+          <label class="form-label">Purchase Description</label>
+          <textarea class="form-control" rows="2">Foldable basket made of polyester and steel, ideal for compact laundry storage.</textarea>
         </div>
-        <div class="col-md-3">
-          <label class="form-label">UPC</label>
-          <input class="form-control" placeholder="" disabled>
-        </div>
-        <div class="col-md-3">
+        <div class="col-md-4">
           <label class="form-label">Supplier Item Code</label>
           <input class="form-control" value="HB-FOLD-BASKET">
         </div>
-        <div class="col-md-3">
-          <label class="form-label">Purchase Description</label>
-          <input class="form-control" value="Foldable basket made of polyester and steel, ideal for compact laundry storage.">
+      </div>
+      
+      <!-- Row 3 -->
+      <div class="row mt-3">
+        <div class="col-md-4">
+          <label class="form-label">SellerX SKU</label>
+          <input class="form-control" disabled>
+        </div>
+        <div class="col-md-4">
+          <label class="form-label">UPC</label>
+          <input class="form-control" disabled>
         </div>
       </div>
-
+      
+      <!-- Row 4 -->
       <div class="row mt-3">
-        <div class="col-md-3">
+        <div class="col-md-4">
           <label class="form-label">Manufacturer Country</label>
           <select class="form-select" name="manufacturerCountry">
             <option selected>Vietnam</option>
@@ -87,39 +102,61 @@
             <option>Mexico</option>
           </select>
         </div>
-        <div class="col-md-3">
-            <label class="form-label">Season</label>
-            <select class="form-select" name="Season">
-              <option value="All Seasons"selected>All Seasons</option>
-              <option value="Summer">Summer</option>
-              <option value="Spring">Spring</option>
-              <option value="Autumn">Autumn</option>
-              <option value="Winter">Winter</option>
-            </select>
+        <div class="col-md-5">
+          <label class="form-label d-block">Season</label>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" name="season[]" value="All Seasons" id="seasonAll" checked>
+            <label class="form-check-label" for="seasonAll">All Seasons</label>
           </div>
-        <div class="col-md-2 d-flex align-items-end">
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" checked>
-                <label class="form-check-label">LFS Item</label>
-              </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" name="season[]" value="Summer" id="seasonSummer">
+            <label class="form-check-label" for="seasonSummer">Summer</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" name="season[]" value="Spring" id="seasonSpring">
+            <label class="form-check-label" for="seasonSpring">Spring</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" name="season[]" value="Autumn" id="seasonAutumn">
+            <label class="form-check-label" for="seasonAutumn">Autumn</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" name="season[]" value="Winter" id="seasonWinter">
+            <label class="form-check-label" for="seasonWinter">Winter</label>
+          </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-3 d-flex align-items-center">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" checked>
+            <label class="form-check-label">LFS Item</label>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Row 5 -->
+      <div class="row mt-3">
+        <div class="col-md-6">
+          <label class="form-label">Subsidiary</label>
+          <input name="subsidiary" class="form-control" id="subsidiaryInput" value="1 | 4">
+          <small class="form-text text-muted">Use <strong>|</strong> to separate multiple values.</small>
+        </div>
+        <div class="col-md-2">
           <label class="form-label">Tax Schedule</label>
           <input class="form-control" value="Standard Rate" disabled>
         </div>
-      </div> 
-      <div class="col-md-6 mt-3">
-        <label class="form-label">Subsidiary</label>
-        <input name="subsidiary" class="form-control" id="subsidiaryInput" value="1 | 4">
-        <small class="form-text text-muted">Type a number (1–4) and press Enter. Use <strong>|</strong> to separate multiple values if preloaded.</small>
       </div>
+      
+
+
+
+      
       
   <!-- Supplier & Pricing -->
 <h5 class="mt-4 mb-2 fw-semibold">Supplier & Pricing</h5>
 <hr>
 <div class="row align-items-end">
 
-  <!-- ✅ Combined Checkboxes -->
+
   <div class="col-md-3">
     <div class="form-check mb-1">
       <input class="form-check-input" type="checkbox" checked>
@@ -131,7 +168,7 @@
     </div>
   </div>
 
-  <!-- ✅ Supplier Dropdown -->
+
   <div class="col-md-3">
     <label class="form-label">Supplier</label>
     <select class="form-select supplier-select" name="supplier" id="supplierSelect">
@@ -143,19 +180,17 @@
     </select>
   </div>
 
-  <!-- ✅ Currency (auto-filled based on supplier) -->
   <div class="col-md-2">
     <label class="form-label">Currency</label>
     <input class="form-control" id="currencyField" value="VND" disabled>
   </div>
 
-  <!-- ✅ Price Input -->
+
   <div class="col-md-2">
     <label class="form-label">Price</label>
     <input class="form-control" value="8.50">
   </div>
 
-  <!-- ✅ Responsible Purchaser Dropdown -->
   <div class="col-md-2">
     <label class="form-label">Responsible Purchaser</label>
     <select class="form-select" name="purchaser">
@@ -169,7 +204,44 @@
 
 </div>
 
-      
+<!-- Category Management -->
+<h5 class="mt-5 mb-2 fw-semibold">Category Management</h5>
+<hr>
+<div class="row">
+  <!-- Brand Manager / Category Manager -->
+  <div class="col-md-4">
+    <label class="form-label">Brand Manager / Category Manager</label>
+    <select class="form-select select2">
+      <option selected>Thomas Mueller</option>
+      <option>Julia Simmons</option>
+      <option>Rachel Li</option>
+      <option>David Ng</option>
+    </select>
+  </div>
+
+  <!-- Category -->
+  <div class="col-md-4">
+    <label class="form-label">Category</label>
+    <select class="form-select select2">
+      <option selected>Phone Accessories</option>
+      <option>Storage & Laundry</option>
+      <option>Kitchen Tools</option>
+      <option>Office Supplies</option>
+    </select>
+  </div>
+
+  <!-- Responsible Purchaser -->
+  <div class="col-md-4">
+    <label class="form-label">Responsible Purchases</label>
+    <select class="form-select select2">
+      <option selected>Sophie Zhang</option>
+      <option>Michael Tan</option>
+      <option>Sarah Lee</option>
+      <option>Emily Chen</option>
+    </select>
+  </div>
+</div>
+
       
 
       <!-- Replenishment -->
@@ -358,22 +430,28 @@
   </div>
   
 
-      <!-- Save Button -->
-      <div class="mt-4 text-end">
-        <a href="../items.html" class="btn btn-outline-secondary">← Back</a>
-        <button class="btn btn-dark">Continue to Generate SKU</button>
+      <!-- Button -->
+      <div class="mt-4 d-flex justify-content-between align-items-center">
+        <div class="d-flex gap-2">
+          <a href="../../upload-success.html" class="btn btn-outline-secondary">← Newly Uploaded</a>
+          <a href="../../index.html" class="btn btn-outline-secondary">← All Items</a>
+        </div>
+        <a href="in-review.html" class="btn btn-primary">Submit for Review</a>
       </div>
+      <!-- Spacer -->
+<div class="mb-5"></div>
+
+<!-- Footer -->
+<footer class="text-center text-muted small mb-4">
+  This mockup is made by Jan Valle.
+</footer>
+      
     </form>
+    
   </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-<script>
-  $(document).ready(function() {
-    $('.brand-select').select2();
-  });
 
-  
-</script>
 <script>
     const currencyMap = {
       "Hanoi Soft Goods Co.": "VND",
@@ -390,10 +468,10 @@
     });
   </script>
 
-<script src="https://cdn.jsdelivr.net/npm/@yaireo/tagify"></script>
-<script src="scripts/form.js"></script>
+
+<script src="../../scripts/main.js"></script>
 
 
-  
+
 </body>
 </html>
