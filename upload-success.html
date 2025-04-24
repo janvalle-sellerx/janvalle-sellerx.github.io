@@ -9,8 +9,33 @@
 <body>
   <div class="container mt-5">
     <h2 class="mb-3">Items Successfully Created</h2>
-    <p>The following items have been created from your upload</p>
-
+    <p class="text-muted small">
+      Upload ID: <span>UPL-20250424-103812</span>
+    </p>
+    <p class="text-muted small">
+      Uploaded by:  <span>jan.valle@sellerx.com</span>
+    </p>
+    
+    <p class="mb-1">The following items have been created from your upload:</p>
+    
+    <div class="row align-items-end mt-4">
+      <div class="col-md-6">
+        <label for="supplierSelect" class="form-label">Please select a supplier to apply to all items</label>
+        <select class="form-select" id="supplierSelect" name="supplier" required>
+          <option value="Hanoi Soft Goods Co." selected>Hanoi Soft Goods Co.</option>
+          <option value="Global Textile Imports">Global Textile Imports</option>
+          <option value="ZenSource Manufacturing">ZenSource Manufacturing</option>
+          <option value="KW Partners Inc.">KW Partners Inc.</option>
+          <option value="Alpha Home Goods">Alpha Home Goods</option>
+        </select>
+      </div>
+      <div class="col-md-3 d-flex">
+        <button type="submit" class="btn btn-primary mt-4">Apply to All</button>
+      </div>
+    </div>
+  
+    <br>
+  
     <table class="table table-bordered">
       <thead class="table-light">
         <tr>
@@ -26,25 +51,26 @@
           <td><a href="item/compact-foldable-laundy-basket/draft.html">View Details</a></td>
         </tr>
         <tr>
-          <td><a href="#">USB-C Hub 6-in-1 Docking Station</a></td>
+          <td><a href="#">Over-the-Door Hanging Organizer</a></td>
           <td class="text-danger">Missing fields – please check</td>
           <td><a href="#">View Details</a></td>
         </tr>
         <tr>
-          <td><a href="#">Digital Body Weight Scale</a></td>
+          <td><a href="#">Collapsible Storage Bins – Set of 3</a></td>
           <td class="text-success">All fields complete</td>
           <td><a href="#">View Details</a></td>
         </tr>
         <tr>
-          <td><a href="#">Packable Travel Backpack - 30L</a></td>
+          <td><a href="#">Mesh Laundry Hamper with Handle</a></td>
           <td class="text-danger">Missing fields – please check</td>
           <td><a href="#">View Details</a></td>
         </tr>
       </tbody>
     </table>
-
+  
     <div class="mt-4">
       <a href="index.html" class="btn btn-outline-secondary">← Back to Item List</a>
+      <a href="qutation-files.html" class="btn btn-outline-secondary">← Back to Quotation Files List</a>
     </div>
   </div>
 
