@@ -8,16 +8,26 @@
 </head>
 <body>
   <div class="container mt-5">
-    <h2 class="mb-3">Items Successfully Created</h2>
-    <p class="text-muted small">
-      Upload ID: <span>UPL-20250424-103812</span>
-    </p>
+    <div class="alert alert-info alert-dismissible fade show" role="alert">
+      📘 Once your quotation is submitted, we’ll run validations and display the results. You’ll then need to select the supplier information to apply to all items.
+      <br>
+      To continue, please click <strong>View Details</strong> for <em>Compact Foldable Laundry Basket</em>.
+      <br>
+      <small class="text-muted">Note: This is a mockup. Apply to All button is not active and all data is for demonstration purposes only.</small>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    
+    <h2 class="mb-3">Quotation ID: UPL-20250424-103812 </h2>
+   
     <p class="text-muted small">
       Uploaded by:  <span>jan.valle@sellerx.com</span>
     </p>
+    <p class="text-muted small">
+      Date Created: <span>April 24, 2025</span>
+    </p>
+
     
-    <p class="mb-1">The following items have been created from your upload:</p>
-    
+      
     <div class="row align-items-end mt-4">
       <div class="col-md-6">
         <label for="supplierSelect" class="form-label">Please select a supplier to apply to all items</label>
@@ -40,7 +50,7 @@
       <thead class="table-light">
         <tr>
           <th scope="col">Display Name</th>
-          <th scope="col">Validation</th>
+          <th scope="col">Qutoation File Validation</th>
           <th scope="col">Action</th>
         </tr>
       </thead>
