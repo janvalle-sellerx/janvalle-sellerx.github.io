@@ -15,16 +15,7 @@
   
   
   <div class="container mt-5">
-    <div class="alert alert-info alert-dismissible fade show" role="alert">
-      📘 Once quotation file is successfully uploaded, the status will be <strong>Draft</strong>. 
-      <br>
-      BMs/Admins can edit and save the information below.
-      <br>
-      To move to the next step, click the <strong>Submit for Review</strong> button to send this item for approval.
-      <br>
-      <small class="text-muted">Note:This mockup uses dummy data, and the save functionality is not active.</small>
-      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
+    <div id="validationAlert"></div>
     
     
     
@@ -158,7 +149,7 @@
         <div class="col-md-4">
           <label class="form-label">
             Subitem of internal ID (MAP)</label>
-          <input class="form-control">
+          <input class="form-control" required>
         </div>
       </div>
       
@@ -537,7 +528,8 @@
         </div>
         <div class="d-flex gap-2">
           <button type="button" class="btn btn-outline-primary">Save</button>
-          <a href="in-review-by-bm.html" class="btn btn-primary">Submit for Review</a>
+          <button type="button" id="validateAndSubmit" class="btn btn-primary">Submit for Review</button>
+
         </div>
       </div>
       <!-- Spacer -->
@@ -811,6 +803,46 @@
     document.getElementById('items').scrollIntoView({ behavior: 'smooth' });
   });z
 </script>
+<script>
+  document.getElementById('validateAndSubmit').addEventListener('click', function() {
+    const fields = document.querySelectorAll('#items input, #items select, #items textarea');
+    let isValid = true;
+  
+    fields.forEach((field) => {
+      field.classList.remove('is-invalid');
+  
+      if (!field.disabled && field.offsetParent !== null && !field.value.trim()) {
+        field.classList.add('is-invalid');
+        isValid = false;
+      }
+    });
+  
+    const alertBox = document.getElementById('validationAlert');
+    alertBox.innerHTML = ''; // Clear previous alert
+  
+    if (isValid) {
+      alertBox.innerHTML = `
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+          ✅ Form is valid and ready to submit!
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+      `;
+      // You can simulate changing status or form submit here
+    } else {
+      alertBox.innerHTML = `
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+          ⚠️ Please fill all required fields.
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+      `;
+  
+      const firstErrorField = document.querySelector('.is-invalid');
+      firstErrorField.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  });
+  </script>
+  
+  
 
 
 
