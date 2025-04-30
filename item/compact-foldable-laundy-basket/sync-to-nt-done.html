@@ -1237,7 +1237,7 @@
       <div id="celigoAction" class="border rounded p-3 mb-4">
         <div class="d-flex justify-content-between align-items-center mb-2">
           <h6 class="fw-semibold mb-0">Generate Celigo eTail Item Alias</h6>
-          <button type="button" class="btn btn-outline-primary btn-sm" onclick="runCeligoAction()">Run Action</button>
+          <button id="celigoRunButton" class="btn btn-outline-primary btn-sm" onclick="runCeligoAction()">Run Action</button>
         </div>
         <table class="table table-sm mb-0">
           <tbody>
@@ -1282,6 +1282,9 @@ document.getElementById("celigoUser").textContent = "manuela.pilia@sellerx.com";
           // Show alert (persistently)
 const alert = document.getElementById("celigoSuccessAlert");
 alert.classList.remove("d-none");
+  // Remove the button
+  const btn = document.getElementById("celigoRunButton");
+    if (btn) btn.remove();
 
         }
       </script>
