@@ -15,15 +15,17 @@
   
   
   <div class="container mt-5">
+        <!-- Alert container (hidden initially) -->
+        <div id="celigoSuccessAlert" class="alert alert-success alert-dismissible fade show d-none" role="alert">
+          Celigo eTail Item Alias generated successfully!
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        
    
     <div class="alert alert-success alert-dismissible fade show" role="alert">
-      🎉 <strong>Congrats!</strong> You've completed the item creation flow.
-      <br>
-      The status is now <strong>Sync to NetSuite</strong> and all fields have been locked for editing.
-      <br>
-      You can review everything that happened in the <strong>History</strong> tab.
-      <br>
-  <small class="text-muted">Note: This is a mockup using dummy data. Save functionality is not active.</small>
+      <strong>Success!</strong> The item has been successfully created in NetSuite.
+      <br> It is now in the <strong>Sync to NetSuite</strong> status, and all fields have been locked for editing.
+      <br> To complete the setup, please navigate to the <strong>Other Actions</strong> tab and click <strong>Run Action</strong> to generate the Celigo eTail Item Alias.
   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
   
@@ -43,6 +45,7 @@
         Role: Admin
       </div>
     </div>
+    
   
     <!-- Tab Headers -->
 <ul class="nav nav-tabs mb-3" id="quotationTabs" role="tablist">
@@ -56,8 +59,12 @@
     <button class="nav-link" id="synctonetsuite-tab" data-bs-toggle="tab" data-bs-target="#synctonetsuite" type="button" role="tab">Sync to Netsuite</button>
   </li>
   <li class="nav-item" role="presentation">
+    <button class="nav-link" id="otheractions-tab" data-bs-toggle="tab" data-bs-target="#otheractions" type="button" role="tab">Other Actions</button>
+  </li>
+  <li class="nav-item" role="presentation">
     <button class="nav-link" id="history-tab" data-bs-toggle="tab" data-bs-target="#history" type="button" role="tab">History</button>
   </li>
+  
 </ul>
 
 
@@ -83,9 +90,23 @@
           </div>
         </li>
          -->
-  
+        
+         <li class="list-group-item">
+          <div class="d-flex justify-content-between">
+            <div>
+              <h6 class="mb-1 fw-bold">Celigo eTail Item Alias Generated</h6>
+              <small class="text-muted d-block">2025-04-24 11:05:00</small>
+              <small class="text-muted d-block">Action performed by: manuela.pilia@sellerx.com</small>
+              <p class="mb-1 mt-2">Alias <strong>FBM_HMG0000420X001S</strong> was successfully generated and pushed to NetSuite.</p>
+            </div>
+            <span class="badge bg-success align-self-start">Success</span>
+          </div>
+        </li>
+        
   
         <!-- Synced to NetSuite -->
+
+        
         <li class="list-group-item">
           <div class="d-flex justify-content-between">
             <div>
@@ -1207,45 +1228,67 @@
  </form>
   </div>
   
-  <div class="tab-pane fade" id="history" role="tabpanel">
-    <div class="mt-4">
-      <h5 class="fw-semibold mb-3">Stage History</h5>
-      <p class="text-muted">View the complete history of stage transitions, inputs, and outputs for this product.</p>
-    
-      <!-- Timeline Entry -->
-      <div class="border-start border-2 ps-4 ms-2">
-    
-        <!-- Entry 1 -->
-        <div class="mb-4 position-relative">
-          <span class="position-absolute top-0 start-0 translate-middle p-2 bg-success rounded-circle"></span>
-          <h6 class="fw-semibold">DATA ENTRY</h6>
-          <div class="text-muted small">2025-03-15 09:30:00</div>
-          <p class="mb-1">Product created successfully in <strong>DATA_ENTRY</strong> stage.</p>
-          <div><span class="badge bg-success">Success</span></div>
+  <div class="tab-pane fade" id="otheractions" role="tabpanel">
+    <div class="container py-4">
+      <h5 class="fw-semibold mb-3">Other Actions After Item Creation</h5>
+      <p class="text-muted mb-4">Use these tools to finalize or enhance your item setup.</p>
+  
+      <!-- Action Card: Generate Celigo eTail Item Alias -->
+      <div id="celigoAction" class="border rounded p-3 mb-4">
+        <div class="d-flex justify-content-between align-items-center mb-2">
+          <h6 class="fw-semibold mb-0">Generate Celigo eTail Item Alias</h6>
+          <button type="button" class="btn btn-outline-primary btn-sm" onclick="runCeligoAction()">Run Action</button>
         </div>
-    
-        <!-- Entry 2 -->
-        <div class="mb-4 position-relative">
-          <span class="position-absolute top-0 start-0 translate-middle p-2 bg-success rounded-circle"></span>
-          <h6 class="fw-semibold">SKU UPC GENERATION</h6>
-          <div class="text-muted small">2025-03-20 14:15:00</div>
-          <p class="mb-1">SKU <strong>SX-KM1001</strong> and UPC <strong>857493028475</strong> generated successfully.</p>
-          <div><span class="badge bg-success">Success</span></div>
-        </div>
-    
-        <!-- Entry 3 -->
-        <div class="mb-4 position-relative">
-          <span class="position-absolute top-0 start-0 translate-middle p-2 bg-success rounded-circle"></span>
-          <h6 class="fw-semibold">NETSUITE IMPORT</h6>
-          <div class="text-muted small">2025-04-02 16:15:00</div>
-          <p class="mb-1">Product successfully imported to NetSuite with ID <strong>NS-4857</strong>.</p>
-          <div><span class="badge bg-success">Success</span></div>
-        </div>
-    
+        <table class="table table-sm mb-0">
+          <tbody>
+            <tr>
+              <th scope="row" class="w-25">Status</th>
+              <td id="celigoStatus"><span class="badge bg-secondary">Not Started</span></td>
+            </tr>
+            <tr>
+              <th scope="row" class="w-25">Alias</th>
+              <td id="celigoAlias">-</td>
+            </tr>
+            <tr>
+              <th scope="row">Date</th>
+              <td id="celigoDate">-</td>
+            </tr>
+            <tr>
+              <th scope="row">Action performed by</th>
+              <td id="celigoUser">-</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
+      
+  
+      
+      <script>
+        function runCeligoAction() {
+          // Example email (you can replace this dynamically from your user system)
+          const userEmail = "jan.valle@sellerx.com";
+          const now = new Date().toLocaleString();
+      
+          // Update status
+          document.getElementById("celigoStatus").innerHTML = `<span class="badge bg-success">Completed</span>`;
+          document.getElementById("celigoAlias").textContent = "FBM_HMG0000420X001S";
+
+// Update date
+document.getElementById("celigoDate").textContent = "2025-04-24 11:05:00";
+
+// Update user
+document.getElementById("celigoUser").textContent = "manuela.pilia@sellerx.com";
+      
+          // Show alert (persistently)
+const alert = document.getElementById("celigoSuccessAlert");
+alert.classList.remove("d-none");
+
+        }
+      </script>
     </div>
-    
   </div>
+  
+  
 </div>
 
       
