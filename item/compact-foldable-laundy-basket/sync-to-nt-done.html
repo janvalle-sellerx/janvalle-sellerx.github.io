@@ -20,6 +20,15 @@
           Celigo eTail Item Alias generated successfully!
           <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
+
+        <div id="moqSuccessAlert" class="alert alert-success alert-dismissible fade show d-none" role="alert">
+          ✅ MOQ successfully pushed to NetSuite!
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+
+        
+
+        
         
    
     <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -1260,6 +1269,30 @@
           </tbody>
         </table>
       </div>
+     <!-- Push MOQ to NetSuite Action -->
+<div id="moqAction" class="border rounded p-3 mb-4">
+  <div class="d-flex justify-content-between align-items-center mb-2">
+    <h6 class="fw-semibold mb-0">Push MOQ to NetSuite</h6>
+    <button id="moqRunButton" class="btn btn-outline-primary btn-sm" onclick="runMoqAction()">Run Action</button>
+  </div>
+  <table class="table table-sm mb-0">
+    <tbody>
+      <tr>
+        <th scope="row" class="w-25">Status</th>
+        <td id="moqStatus"><span class="badge bg-secondary">Not Started</span></td>
+      </tr>
+      
+      <tr>
+        <th scope="row">Date</th>
+        <td id="moqDate">-</td>
+      </tr>
+      <tr>
+        <th scope="row">Action performed by</th>
+        <td id="moqUser">-</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
       
   
       
@@ -1288,6 +1321,27 @@ alert.classList.remove("d-none");
 
         }
       </script>
+    <script>
+      function runMoqAction() {
+        // Set values
+        const date = "2025-04-24 11:06:00";
+        const user = "manuela.pilia@sellerx.com";
+    
+        // Update status fields
+        document.getElementById("moqStatus").innerHTML = `<span class="badge bg-success">Completed</span>`;
+        document.getElementById("moqDate").textContent = date;
+        document.getElementById("moqUser").textContent = user;
+    
+        // Remove the Run Action button
+        const button = document.getElementById("moqRunButton");
+        if (button) button.remove();
+    
+        // Show alert
+        const alert = document.getElementById("moqSuccessAlert");
+        alert.classList.remove("d-none");
+      }
+    </script>
+      
     </div>
   </div>
   
